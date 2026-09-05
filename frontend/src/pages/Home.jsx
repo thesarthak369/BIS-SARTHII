@@ -280,25 +280,6 @@ export default function Home() {
       </section>
 
       {/* USER TYPES */}
-      <section className="border-t border-navy-900/5 bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="font-display text-center text-2xl font-bold text-navy-900">
-            Built for everyone who deals with BIS
-          </h2>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            {users.map((u) => (
-              <div
-                key={u.label}
-                className="press inline-flex items-center gap-2.5 rounded-full border border-navy-900/10 bg-paper-50 px-5 py-2.5 transition-colors hover:border-saffron-400 hover:bg-white"
-              >
-                <u.icon className="h-4 w-4 text-navy-700" />
-                <span className="text-sm font-semibold text-navy-800">{u.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA BAND */}
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="relative overflow-hidden rounded-3xl bg-navy-900 px-8 py-14 text-center sm:px-16">
@@ -327,6 +308,25 @@ export default function Home() {
                 Start Compliance Roadmap
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-navy-900/5 bg-white py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="font-display text-center text-2xl font-bold text-navy-900">
+            Built for everyone who deals with BIS
+          </h2>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            {users.map((u) => (
+              <div
+                key={u.label}
+                className="press inline-flex items-center gap-2.5 rounded-full border border-navy-900/10 bg-paper-50 px-5 py-2.5 transition-colors hover:border-saffron-400 hover:bg-white"
+              >
+                <u.icon className="h-4 w-4 text-navy-700" />
+                <span className="text-sm font-semibold text-navy-800">{u.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
