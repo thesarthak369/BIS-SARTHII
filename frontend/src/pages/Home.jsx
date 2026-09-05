@@ -8,7 +8,6 @@ import {
   ClipboardList,
   Route as RouteIcon,
   ShieldCheck,
-  Languages,
   CheckCircle2,
   Factory,
   Ship,
@@ -57,15 +56,6 @@ const steps = [
   { n: '02', icon: FileSearch, title: 'Get matched standards, with proof', desc: 'Ranked Indian Standards, each with a relevance score and the evidence behind it.' },
   { n: '03', icon: ClipboardList, title: 'Understand certification & forms', desc: 'Mandatory, voluntary, or unclear — stated plainly, with the exact forms required.' },
   { n: '04', icon: RouteIcon, title: 'Follow your compliance roadmap', desc: 'A personalised, step-by-step path from product to certified.' },
-]
-
-const diffs = [
-  { icon: ScanLine, title: 'Product-aware AI', desc: 'Understands product photos, labels, and specs — not just text queries.' },
-  { icon: FileSearch, title: 'Smart standard matching', desc: 'A transparent scoring engine, not a guess — every match is explained.' },
-  { icon: ShieldCheck, title: 'Evidence-first answers', desc: 'Every claim traces back to an official BIS source. No source, no answer.' },
-  { icon: ClipboardList, title: 'Smart Form Finder', desc: 'Recommends the forms relevant to your product and stage — never invented.' },
-  { icon: RouteIcon, title: 'Personalised roadmap', desc: 'Turns scattered BIS information into one clear, actionable sequence.' },
-  { icon: Languages, title: 'English & हिंदी', desc: 'Ask in either language — standard numbers and form IDs stay unchanged.' },
 ]
 
 const users = [
@@ -230,30 +220,6 @@ export default function Home() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* DIFFERENTIATORS */}
-      <section className="bg-navy-950 py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow text-saffron-400">Why not just ask a chatbot?</span>
-            <h2 className="font-display mt-3 text-3xl font-bold text-white sm:text-[2.6rem] sm:leading-[1.1]">
-              Not a generic AI. A compliance navigator.
-            </h2>
-          </div>
-          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {diffs.map((d) => (
-              <div
-                key={d.title}
-                className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors duration-300 hover:border-saffron-400/40 hover:bg-white/[0.06]"
-              >
-                <d.icon className="icon-tile h-6 w-6 text-saffron-400" />
-                <h3 className="font-display mt-4 text-base font-bold text-white">{d.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">{d.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
