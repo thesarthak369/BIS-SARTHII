@@ -4,9 +4,7 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import Chat from './pages/Chat.jsx'
 import Scan from './pages/Scan.jsx'
-import Standards from './pages/Standards.jsx'
 import Forms from './pages/Forms.jsx'
-import Roadmap from './pages/Roadmap.jsx'
 
 export default function App() {
   return (
@@ -16,10 +14,10 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chat" element={<Chat />} />
+          {/* Find Standard and Roadmap used to be separate pages; both are now steps
+              inside the Scan flow (scan -> matched standards -> compliance roadmap). */}
           <Route path="/scan" element={<Scan />} />
-          <Route path="/standards" element={<Standards />} />
           <Route path="/forms" element={<Forms />} />
-          <Route path="/roadmap" element={<Roadmap />} />
         </Routes>
       </main>
       <Footer />

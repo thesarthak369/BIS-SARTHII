@@ -5,9 +5,7 @@ import PillNav from './PillNav.jsx'
 const links = [
   { to: '/chat', label: 'Ask Sarthi' },
   { to: '/scan', label: 'Scan Product' },
-  { to: '/standards', label: 'Find Standard' },
   { to: '/forms', label: 'Forms Hub' },
-  { to: '/roadmap', label: 'Roadmap' },
 ]
 
 // Built once at module scope, not inside the component: PillNav's items prop needs a

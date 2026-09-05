@@ -331,7 +331,7 @@ export default function Home() {
                 Ask Sarthi
               </Link>
               <Link
-                to="/roadmap"
+                to="/scan"
                 className="press rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition hover:border-white/40 hover:bg-white/10"
               >
                 Start Compliance Roadmap
