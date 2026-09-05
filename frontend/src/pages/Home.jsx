@@ -53,10 +53,10 @@ const demoChats = [
 const CHAT_LAYOUT = ['lg:ml-0 lg:w-full', 'lg:ml-[8%] lg:w-[89%]']
 
 const steps = [
-  { n: '01', title: 'Describe or scan your product', desc: 'Type a description or upload a photo/label — Sarthi extracts what matters.' },
-  { n: '02', title: 'Get matched standards, with proof', desc: 'Ranked Indian Standards, each with a relevance score and the evidence behind it.' },
-  { n: '03', title: 'Understand certification & forms', desc: 'Mandatory, voluntary, or unclear — stated plainly, with the exact forms required.' },
-  { n: '04', title: 'Follow your compliance roadmap', desc: 'A personalised, step-by-step path from product to certified.' },
+  { n: '01', icon: ScanLine, title: 'Describe or scan your product', desc: 'Type a description or upload a photo/label — Sarthi extracts what matters.' },
+  { n: '02', icon: FileSearch, title: 'Get matched standards, with proof', desc: 'Ranked Indian Standards, each with a relevance score and the evidence behind it.' },
+  { n: '03', icon: ClipboardList, title: 'Understand certification & forms', desc: 'Mandatory, voluntary, or unclear — stated plainly, with the exact forms required.' },
+  { n: '04', icon: RouteIcon, title: 'Follow your compliance roadmap', desc: 'A personalised, step-by-step path from product to certified.' },
 ]
 
 const diffs = [
@@ -191,19 +191,43 @@ export default function Home() {
             From a vague product to an actionable compliance path
           </h2>
         </div>
-        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-4">
-          {steps.map((s, i) => (
-            <div key={s.n} className="relative">
-              <div className="flex items-center gap-3">
-                <span className="font-display text-5xl font-bold tabular-nums text-navy-900/[0.09]">
-                  {s.n}
+        {/* Desktop: one continuous horizontal line with a marker at each step, like stops
+            on a route. The line sits behind the grid, spanning from the first marker's
+            centre (12.5% of the row) to the last (87.5%) — each marker is centred in its
+            own 25%-wide column. */}
+        <div className="relative mt-14 hidden md:block">
+          <div className="absolute left-[12.5%] right-[12.5%] top-6 h-px bg-navy-900/15" />
+          <div className="relative grid grid-cols-4 gap-6">
+            {steps.map(s => (
+              <div key={s.n} className="flex flex-col items-center px-2 text-center">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-saffron-500 text-white shadow-md shadow-saffron-500/20">
+                  <s.icon className="h-5 w-5" />
                 </span>
-                {i < steps.length - 1 && (
-                  <span className="hidden h-px flex-1 bg-navy-900/10 md:block" />
-                )}
+                <p className="mt-4 text-[11px] font-bold uppercase tracking-wide text-saffron-600">
+                  Step {s.n}
+                </p>
+                <h3 className="font-display mt-1 text-base font-bold text-navy-900">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy-700/65">{s.desc}</p>
               </div>
-              <h3 className="font-display mt-4 text-base font-bold text-navy-900">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-700/65">{s.desc}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: same idea, rotated — the line runs down the left edge instead. */}
+        <div className="mt-10 md:hidden">
+          {steps.map((s, i) => (
+            <div key={s.n} className="flex gap-4">
+              <div className="flex flex-col items-center">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-saffron-500 text-white">
+                  <s.icon className="h-4 w-4" />
+                </span>
+                {i < steps.length - 1 && <span className="my-1 w-px flex-1 bg-navy-900/15" />}
+              </div>
+              <div className="flex-1 pb-8">
+                <p className="text-[11px] font-bold uppercase tracking-wide text-saffron-600">Step {s.n}</p>
+                <h3 className="font-display mt-0.5 text-base font-bold text-navy-900">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy-700/65">{s.desc}</p>
+              </div>
             </div>
           ))}
         </div>
