@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
-import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import Chat from './pages/Chat.jsx'
 import Scan from './pages/Scan.jsx'
@@ -20,7 +19,6 @@ export default function App() {
           <Route path="/forms" element={<Forms />} />
         </Routes>
       </main>
-      <Footer />
     </div>
   )
 }
