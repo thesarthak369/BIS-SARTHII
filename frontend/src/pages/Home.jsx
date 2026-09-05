@@ -23,16 +23,6 @@ import {
    stops answering, this array is the thing that quietly starts lying. */
 const demoChats = [
   {
-    q: 'Do I need BIS certification for packaged drinking water?',
-    a: (
-      <>
-        Yes — it falls under <span className="font-semibold text-saffron-400">IS 14543</span> and is
-        under compulsory certification. An FSSAI licence is separately required.
-      </>
-    ),
-    source: 'bis.gov.in — Products under Compulsory Certification',
-  },
-  {
     q: 'Which standard applies to an LED bulb?',
     a: (
       <>
@@ -55,10 +45,12 @@ const demoChats = [
   },
 ]
 
-/* Horizontal stagger only — separate cards with clear air between them, no overlap. The
-   widths vary slightly so the stack has some rhythm rather than reading as three identical
-   boxes. Flat below lg, where any offset in a narrow column looks like a mistake. */
-const CHAT_LAYOUT = ['lg:ml-0 lg:w-full', 'lg:ml-32 lg:w-[95%]', 'lg:-ml-8 lg:w-[97%]']
+/* Horizontal stagger only — two cards with clear air between them, no overlap. Margin +
+   width stay proportional to the column (not fixed px) and sum to <=100%, or the box's
+   right edge pushes past the column boundary into the text column — that overflow was
+   invisible on a wide monitor (enough dead space to absorb it) but collided with the
+   headline on a narrower laptop screen. Flat below lg, where any offset looks like a mistake. */
+const CHAT_LAYOUT = ['lg:ml-0 lg:w-full', 'lg:ml-[8%] lg:w-[89%]']
 
 const steps = [
   { n: '01', title: 'Describe or scan your product', desc: 'Type a description or upload a photo/label — Sarthi extracts what matters.' },
@@ -107,16 +99,17 @@ export default function Home() {
         {/* Full-bleed rather than a centred max-w container: the two columns are meant to
             sit in opposite corners of the viewport, so the only thing holding them off the
             edge is the page padding. */}
-        <div className="relative px-6 pb-24 pt-20 md:px-10 md:pt-28 lg:px-16">
+        <div className="relative px-6 pb-24 pt-12 md:px-10 md:pt-16 lg:px-16">
           <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
             {/* Windows sit left on desktop, per the layout sketch — but second in source
                 order so a phone shows the headline first and doesn't make the reader
-                scroll past three mock windows to find out what the product is. */}
-            <div className="order-2 space-y-6 lg:order-1">
+                scroll past the mock windows to find out what the product is. */}
+            <div className="order-2 space-y-8 lg:order-1">
               {demoChats.map((c, i) => (
                 /* Layout classes live on the tilt wrapper, since that is now the positioned
-                   element; BorderGlow just fills it. */
-                <TiltCard key={c.q} max={16} className={`max-w-2xl ${CHAT_LAYOUT[i]}`}>
+                   element; BorderGlow just fills it. Sized up from the three-card version —
+                   only two cards now, so each can take more of the column's height. */
+                <TiltCard key={c.q} max={16} className={`max-w-3xl ${CHAT_LAYOUT[i]}`}>
                   <BorderGlow
                     className="text-left"
                     backgroundColor="#060b18"
@@ -125,22 +118,22 @@ export default function Home() {
                     borderRadius={16}
                     glowRadius={20}
                   >
-                    <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
+                    <div className="flex items-center gap-1.5 border-b border-white/10 px-5 py-3.5">
                       <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                       <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                       <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
                     </div>
-                    <div className="space-y-3.5 px-5 py-6">
-                      <div className="ml-auto max-w-[85%] rounded-xl rounded-tr-sm bg-white/10 px-4 py-2.5 text-sm text-white/90">
+                    <div className="space-y-4 px-6 py-8">
+                      <div className="ml-auto max-w-[85%] rounded-xl rounded-tr-sm bg-white/10 px-5 py-3 text-base text-white/90">
                         {c.q}
                       </div>
-                      <div className="max-w-[92%] rounded-xl rounded-tl-sm border-l-2 border-saffron-400 bg-white/5 px-4 py-3 text-sm leading-relaxed text-white/80">
+                      <div className="max-w-[92%] rounded-xl rounded-tl-sm border-l-2 border-saffron-400 bg-white/5 px-5 py-4 text-base leading-relaxed text-white/80">
                         {c.a}
                       </div>
                     </div>
                     {/* The source line is the product's whole promise made visible — and it
                       gives the card the extra height it needed without dead padding. */}
-                    <div className="flex items-center gap-2 border-t border-white/10 px-5 py-3 text-xs text-white/40">
+                    <div className="flex items-center gap-2 border-t border-white/10 px-6 py-3.5 text-xs text-white/40">
                       <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-verified-500" />
                       <span className="truncate">{c.source}</span>
                     </div>
