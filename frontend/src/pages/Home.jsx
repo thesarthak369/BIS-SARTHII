@@ -49,7 +49,11 @@ const demoChats = [
    right edge pushes past the column boundary into the text column — that overflow was
    invisible on a wide monitor (enough dead space to absorb it) but collided with the
    headline on a narrower laptop screen. Flat below lg, where any offset looks like a mistake. */
-const CHAT_LAYOUT = ['lg:ml-0 lg:w-full', 'lg:ml-[8%] lg:w-[89%]']
+// Second card's right edge now deliberately extends past the first's, into the wider gap
+// between the two grid columns below — that gap is the safety margin this borrows from, so
+// it holds on typical screens but has less room to spare on a narrower "large" viewport than
+// a strictly <=100%-of-column layout would.
+const CHAT_LAYOUT = ['lg:ml-0 lg:w-full', 'lg:ml-[4%] lg:w-[107%]']
 
 const steps = [
   { n: '01', icon: ScanLine, title: 'Describe or scan your product', desc: 'Type a description or upload a photo/label — Sarthi extracts what matters.' },
@@ -90,11 +94,11 @@ export default function Home() {
             sit in opposite corners of the viewport, so the only thing holding them off the
             edge is the page padding. */}
         <div className="relative px-6 pb-24 pt-12 md:px-10 md:pt-16 lg:px-16">
-          <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
+          <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-28">
             {/* Windows sit left on desktop, per the layout sketch — but second in source
                 order so a phone shows the headline first and doesn't make the reader
                 scroll past the mock windows to find out what the product is. */}
-            <div className="order-2 space-y-8 lg:order-1">
+            <div className="order-2 space-y-12 lg:order-1">
               {demoChats.map((c, i) => (
                 /* Layout classes live on the tilt wrapper, since that is now the positioned
                    element; BorderGlow just fills it. Sized up from the three-card version —
