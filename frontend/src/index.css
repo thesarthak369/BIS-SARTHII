@@ -86,28 +86,36 @@
   /* Tailwind builds its font-sans utility from this token, so body and sans stay one thing. */
   --font-sans: var(--font-body);
 
-  --color-navy-950: #060b18;
-  --color-navy-900: #0a1128;
-  --color-navy-800: #101c3d;
-  --color-navy-700: #182a56;
-  --color-navy-600: #223b73;
-  --color-navy-500: #2f4f94;
+  /* Site palette: Black, Prussian Blue, Orange, Alabaster Grey, White — a minimal classic
+     black/navy/orange/white kit. Only two dark colours (Black, Prussian Blue) and no light
+     accent colour at all, so navy-800/700/600/500 are interpolated lighter blues to fill
+     the scale, and "verified" again borrows the blue family (same constraint as every other
+     5-colour palette here), using its own pair of interpolated shades so it doesn't read as
+     identical to navy. Alabaster Grey and White map directly onto the paper scale — the
+     first palette pass where the light end needed no interpolation at all. Orange is bright
+     enough that white text on it is unreadable — kept as text-navy-950 on those buttons. */
+  --color-navy-950: #000000; /* Black */
+  --color-navy-900: #14213d; /* Prussian Blue */
+  --color-navy-800: #1f3157;
+  --color-navy-700: #2c477f;
+  --color-navy-600: #3f63ab;
+  --color-navy-500: #6f95d6;
 
-  --color-saffron-600: #d9720c;
-  --color-saffron-500: #f2900f;
-  --color-saffron-400: #f7a836;
-  --color-saffron-100: #fef1de;
+  --color-saffron-600: #d98700; /* darkened Orange — hover/darker state */
+  --color-saffron-500: #fca311; /* Orange — solid accent */
+  --color-saffron-400: #fdbb52; /* lightened Orange — highlighted text on dark backgrounds */
+  --color-saffron-100: #fef0da;
 
-  --color-verified-600: #157a4a;
-  --color-verified-500: #1f9d5f;
-  --color-verified-100: #e3f7ec;
+  --color-verified-600: #2c477f; /* legible as text/icon on light bg */
+  --color-verified-500: #6f95d6; /* icon fill, pops against a dark hero bg */
+  --color-verified-100: #e8eef9;
 
-  --color-paper-50: #fbfaf7;
-  --color-paper-100: #f5f3ee;
-  --color-paper-200: #ece8e0;
+  --color-paper-50: #ffffff; /* White */
+  --color-paper-100: #e5e5e5; /* Alabaster Grey */
+  --color-paper-200: #d4d4d4;
 
-  --shadow-card: 0 1px 2px rgba(10, 17, 40, 0.04), 0 8px 24px -12px rgba(10, 17, 40, 0.12);
-  --shadow-card-hover: 0 4px 10px rgba(10, 17, 40, 0.06), 0 16px 32px -12px rgba(10, 17, 40, 0.18);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px -12px rgba(0, 0, 0, 0.16);
+  --shadow-card-hover: 0 4px 10px rgba(0, 0, 0, 0.08), 0 16px 32px -12px rgba(0, 0, 0, 0.22);
 }
 
 html {

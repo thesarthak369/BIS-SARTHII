@@ -188,7 +188,7 @@ export default function Scan() {
           <button
             onClick={scanProduct}
             disabled={!selectedFile || scanning}
-            className="mt-4 rounded-full bg-saffron-500 px-6 py-2.5 text-sm font-semibold text-white hover:bg-saffron-600 disabled:cursor-not-allowed disabled:opacity-50"
+            className="mt-4 rounded-full bg-saffron-500 px-6 py-2.5 text-sm font-semibold text-navy-950 hover:bg-saffron-600 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {scanning ? 'Scanning...' : '🔍 Scan Product'}
           </button>

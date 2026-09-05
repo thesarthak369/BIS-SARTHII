@@ -22,21 +22,24 @@ const VARIANTS = {
   // Solid saffron: the primary CTA. The dot inflates in a deeper saffron, so the fill reads as
   // the same button pressing forward rather than as a different colour arriving.
   solid: {
-    base: 'border-transparent bg-saffron-500 text-white shadow-lg shadow-saffron-500/25',
+    // Dry Sage (the accent colour) isn't saturated enough for white text at real contrast,
+    // so both the resting label and the one revealed over the saffron-600 dot fill use dark
+    // text instead.
+    base: 'border-transparent bg-saffron-500 text-navy-950 shadow-lg shadow-saffron-500/25',
     dot: 'bg-saffron-600',
-    reveal: 'text-white',
+    reveal: 'text-navy-950',
   },
   // White pill for light sections.
   primary: {
     base: 'border-saffron-500/30 bg-white text-navy-900',
     dot: 'bg-saffron-500',
-    reveal: 'text-white',
+    reveal: 'text-navy-950',
   },
   // Translucent pill on the navy hero, filling with saffron.
   onDark: {
     base: 'border-white/20 bg-white/5 text-white',
     dot: 'bg-saffron-500',
-    reveal: 'text-white',
+    reveal: 'text-navy-950',
   },
 }
 

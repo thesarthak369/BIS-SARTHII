@@ -165,7 +165,7 @@ export default function Chat() {
         <button
           type="submit"
           disabled={busy || !input.trim()}
-          className="press inline-flex h-10 w-10 items-center justify-center rounded-xl bg-saffron-500 text-white transition hover:bg-saffron-600 disabled:cursor-not-allowed disabled:opacity-40"
+          className="press inline-flex h-10 w-10 items-center justify-center rounded-xl bg-saffron-500 text-navy-950 transition hover:bg-saffron-600 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
         </button>

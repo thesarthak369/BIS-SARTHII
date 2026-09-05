@@ -194,7 +194,7 @@ export default function Home() {
           <div className="relative grid grid-cols-4 gap-6">
             {steps.map(s => (
               <div key={s.n} className="flex flex-col items-center px-2 text-center">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-saffron-500 text-white shadow-md shadow-saffron-500/20">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-saffron-500 text-navy-950 shadow-md shadow-saffron-500/20">
                   <s.icon className="h-5 w-5" />
                 </span>
                 <p className="mt-4 text-[11px] font-bold uppercase tracking-wide text-saffron-600">
@@ -212,7 +212,7 @@ export default function Home() {
           {steps.map((s, i) => (
             <div key={s.n} className="flex gap-4">
               <div className="flex flex-col items-center">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-saffron-500 text-white">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-saffron-500 text-navy-950">
                   <s.icon className="h-4 w-4" />
                 </span>
                 {i < steps.length - 1 && <span className="my-1 w-px flex-1 bg-navy-900/15" />}
@@ -301,7 +301,7 @@ export default function Home() {
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 to="/chat"
-                className="press shine rounded-full bg-saffron-500 px-7 py-3.5 text-base font-semibold text-white transition hover:bg-saffron-600"
+                className="press shine rounded-full bg-saffron-500 px-7 py-3.5 text-base font-semibold text-navy-950 transition hover:bg-saffron-600"
               >
                 Ask Sarthi
               </Link>
