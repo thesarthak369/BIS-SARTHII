@@ -124,28 +124,30 @@ export default function Chat() {
           )}
         </div>
 
-        {messages.length === 1 && !busy && (
-          <div className="mt-8">
-            <p className="mb-3 flex items-center gap-1.5 text-[11px] font-medium text-navy-700/45">
-              <Sparkles className="h-3.5 w-3.5" /> Try asking
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {suggestions.map((s, i) => (
-                <button
-                  key={s}
-                  onClick={() => handleSend(s)}
-                  style={{ '--delay': `${i * 60}ms` }}
-                  className="press animate-rise rounded-full border border-navy-900/10 bg-white px-4 py-2 text-xs font-medium text-navy-700 transition hover:-translate-y-0.5 hover:border-saffron-400 hover:shadow-md hover:shadow-navy-900/5 hover:text-saffron-600"
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
         <div ref={bottom} />
       </div>
+
+      {/* Sits directly above the input rather than at the top of the scroll area, so it
+          reads as "here's what to type" rather than a message in the conversation. */}
+      {messages.length === 1 && !busy && (
+        <div className="mb-4">
+          <p className="mb-3 flex items-center gap-1.5 text-[11px] font-medium text-navy-700/45">
+            <Sparkles className="h-3.5 w-3.5" /> Try asking
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {suggestions.map((s, i) => (
+              <button
+                key={s}
+                onClick={() => handleSend(s)}
+                style={{ '--delay': `${i * 60}ms` }}
+                className="press animate-rise rounded-full border border-navy-900/10 bg-white px-4 py-2 text-xs font-medium text-navy-700 transition hover:-translate-y-0.5 hover:border-saffron-400 hover:shadow-md hover:shadow-navy-900/5 hover:text-saffron-600"
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <form
         onSubmit={(e) => {
