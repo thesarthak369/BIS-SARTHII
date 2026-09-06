@@ -13,6 +13,8 @@ langchain-community==0.3.13
 faiss-cpu==1.9.0.post1
 sentence-transformers==3.3.1
 rank-bm25==0.2.2
+# TF-IDF matching used by the backend/bis-rag prototype (full_rag.py), not by the app/ service.
+scikit-learn==1.6.0
 
 # --- Document ingestion ---
 pymupdf==1.25.1
